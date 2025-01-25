@@ -25,7 +25,7 @@ Use the following Python code to request an access token. This requires the `req
 
 # Python: Script for the Acquiring the Access Token
 
-'''import requests
+import requests
 
 def get_access_token(tenant_id, client_id, client_secret, scope="https://graph.microsoft.com/.default"):
     """
@@ -56,7 +56,7 @@ def get_access_token(tenant_id, client_id, client_secret, scope="https://graph.m
         print(f"Failed to fetch access token: {response.status_code}")
         print(response.json())
         return None
-'''
+
 
 # Example usage:
 tenant_id = "YOUR_TENANT_ID"
