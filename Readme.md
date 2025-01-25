@@ -23,8 +23,7 @@ To extract the access token for Graph API, you need to authenticate your app usi
 ### 3. **Request Access Token**
 Use the following Python code to request an access token. This requires the `requests` library:
 
-# Python: Script for the Acquiring the Access Token
-
+```python
 import requests
 
 def get_access_token(tenant_id, client_id, client_secret, scope="https://graph.microsoft.com/.default"):
@@ -56,7 +55,6 @@ def get_access_token(tenant_id, client_id, client_secret, scope="https://graph.m
         print(f"Failed to fetch access token: {response.status_code}")
         print(response.json())
         return None
-
 
 # Example usage:
 tenant_id = "YOUR_TENANT_ID"
