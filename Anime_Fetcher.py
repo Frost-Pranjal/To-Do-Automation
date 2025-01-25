@@ -1,5 +1,4 @@
 import requests
-import csv
 
 def fetch_anime_episodes_jikan(anime_name):
     try:
@@ -37,7 +36,7 @@ def fetch_anime_episodes_jikan(anime_name):
             episodes = episodes_data["data"]
             for ep in episodes:
                 episode_title = ep.get("title", "No Title Available")
-                episode_list.append((episode_counter, episode_title))  # Use the global episode counter
+                episode_list.append(f"Episode {episode_counter}: {episode_title}")  # Use the global episode counter
                 episode_counter += 1  # Increment the counter for the next episode
 
             # Increment the page number for the next request
@@ -49,23 +48,3 @@ def fetch_anime_episodes_jikan(anime_name):
     except Exception as e:
         print(f"An error occurred: {e}")
         return None, []
-
-def save_episodes_to_csv(anime_title, episode_list, filename="episodes.csv"):
-    try:
-        with open(filename, mode="w", newline="", encoding="utf-8") as file:
-            writer = csv.writer(file)
-            writer.writerow(["Episode Number", "Episode Title"])  # CSV header
-            writer.writerows(episode_list)  # Write the episode data
-        print(f"Episodes saved to {filename} successfully.")
-    except Exception as e:
-        print(f"An error occurred while saving to CSV: {e}")
-
-if __name__ == "__main__":
-    print("Welcome to the Anime Episode Finder using Jikan API!")
-    anime_name = input("Enter the name of the anime: ")
-    anime_title, episode_list = fetch_anime_episodes_jikan(anime_name)
-
-    if episode_list:
-        print("\nEpisodes fetched successfully!")
-        filename = f"{anime_title.replace(' ', '_')}.csv"
-        save_episodes_to_csv(anime_title, episode_list, filename)
