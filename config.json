@@ -1,3 +1,4 @@
 {
-    "access_token": " Your Access Token "
+    "access_token": "Your Access Token",
+    "API_KEY": "Your TMDb API_KEY"
 }
